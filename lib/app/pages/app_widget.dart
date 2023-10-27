@@ -23,6 +23,7 @@ class AppWidget extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
             highlightColor: orange,
+            cardColor: buttonColor,
             textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
             scaffoldBackgroundColor: background,
           ),

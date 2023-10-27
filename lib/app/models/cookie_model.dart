@@ -29,6 +29,14 @@ String p1 = MoneyFormatter(amount: 23.9012).output.symbolOnLeft;
 String p2 = MoneyFormatter(amount: 17.3412).output.symbolOnLeft;
 
 final cookies = [
-  CookieModel(name: "Chocholate chips", price: p1, image: ''),
-  CookieModel(name: "Oatmeal with raisins", price: p2, image: '')
+  CookieModel(
+    name: "Chocholate chips",
+    price: p1,
+    image: 'assets/images/cookie-001.png',
+  ),
+  CookieModel(
+    name: "Oatmeal with raisins",
+    price: p2,
+    image: 'assets/images/cookie-002.png',
+  )
 ];

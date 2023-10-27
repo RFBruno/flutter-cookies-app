@@ -39,6 +39,7 @@ dependencies:
   page_transition: ^2.1.0
   flutter_screenutil: ^5.9.0
   money_formatter: ^0.0.5
+  font_awesome_flutter: ^10.6.0
 
 dev_dependencies:
   flutter_test:

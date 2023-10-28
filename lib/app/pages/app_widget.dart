@@ -24,6 +24,8 @@ class AppWidget extends StatelessWidget {
             primarySwatch: Colors.blue,
             highlightColor: orange,
             cardColor: buttonColor,
+            bottomAppBarTheme:
+                const BottomAppBarTheme().copyWith(color: navBarColor),
             textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
             scaffoldBackgroundColor: background,
           ),

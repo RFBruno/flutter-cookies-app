@@ -1,5 +1,6 @@
 import 'package:cookies_app/app/models/cookie_model.dart';
 import 'package:cookies_app/app/pages/home/widgets/avatar_widget.dart';
+import 'package:cookies_app/app/pages/home/widgets/bottom_nav_bar_widget.dart';
 import 'package:cookies_app/app/pages/home/widgets/cart_widget.dart';
 import 'package:cookies_app/app/pages/home/widgets/cookie_card.dart';
 import 'package:cookies_app/app/pages/home/widgets/cookies_bar_widget.dart';
@@ -16,7 +17,7 @@ class HomePage extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       body: Body(size: size),
-      // bottomNavigationBar: const BottomNavBarWidget(),
+      bottomNavigationBar: const BottomNavBarWidget(),
     );
   }
 }

@@ -1,11 +1,20 @@
+import 'package:cookies_app/app/pages/home/widgets/nav_bar_button_widget.dart';
 import 'package:flutter/material.dart';
 
-class BottomNavBarWidget extends StatelessWidget {
+class BottomNavBarWidget extends StatefulWidget {
   const BottomNavBarWidget({super.key});
+
+  @override
+  State<BottomNavBarWidget> createState() => _BottomNavBarWidgetState();
+}
+
+class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
+  int index = 0;
 
   @override
   Widget build(BuildContext context) {
     return Stack(
+      clipBehavior: Clip.none,
       children: [
         Container(
           height: 60,
@@ -16,22 +25,30 @@ class BottomNavBarWidget extends StatelessWidget {
             ),
           ),
         ),
-        Row(
-          children: [
-            Column(
-              children: [
-                Container(
-                  height: 50,
-                  width: 50,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Theme.of(context).cardColor,
-                  ),
-                  child: const Icon(Icons.home_outlined),
-                )
-              ],
-            )
-          ],
+        const Positioned.fill(
+          top: -22,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              NavBarButtonWidget(
+                icon: 'assets/images/home-icon.png',
+                label: 'Home',
+                isSelected: true,
+              ),
+              SizedBox(width: 40),
+              NavBarButtonWidget(
+                icon: 'assets/images/search-icon.png',
+                label: 'Search',
+                isSelected: false,
+              ),
+              SizedBox(width: 40),
+              NavBarButtonWidget(
+                icon: 'assets/images/crown-icon.png',
+                label: 'Premium',
+                isSelected: false,
+              ),
+            ],
+          ),
         )
       ],
     );

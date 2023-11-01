@@ -10,6 +10,15 @@ class BottomNavBarWidget extends StatefulWidget {
 
 class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
   int index = 0;
+  goToPage(int page) {
+    setState(() {
+      index = page;
+    });
+  }
+
+  isSelected(int page) {
+    return index == page;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,27 +34,42 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
             ),
           ),
         ),
-        const Positioned.fill(
+        Positioned.fill(
           top: -22,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              NavBarButtonWidget(
-                icon: 'assets/images/home-icon.png',
-                label: 'Home',
-                isSelected: true,
+              GestureDetector(
+                onTap: () {
+                  goToPage(0);
+                },
+                child: NavBarButtonWidget(
+                  icon: 'assets/images/home-icon.png',
+                  label: 'Home',
+                  isSelected: isSelected(0),
+                ),
               ),
-              SizedBox(width: 40),
-              NavBarButtonWidget(
-                icon: 'assets/images/search-icon.png',
-                label: 'Search',
-                isSelected: false,
+              const SizedBox(width: 40),
+              GestureDetector(
+                onTap: () {
+                  goToPage(1);
+                },
+                child: NavBarButtonWidget(
+                  icon: 'assets/images/search-icon.png',
+                  label: 'Search',
+                  isSelected: isSelected(1),
+                ),
               ),
-              SizedBox(width: 40),
-              NavBarButtonWidget(
-                icon: 'assets/images/crown-icon.png',
-                label: 'Premium',
-                isSelected: false,
+              const SizedBox(width: 40),
+              GestureDetector(
+                onTap: () {
+                  goToPage(2);
+                },
+                child: NavBarButtonWidget(
+                  icon: 'assets/images/crown-icon.png',
+                  label: 'Premium',
+                  isSelected: isSelected(2),
+                ),
               ),
             ],
           ),

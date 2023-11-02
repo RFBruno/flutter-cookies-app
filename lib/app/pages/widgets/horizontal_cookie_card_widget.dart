@@ -1,5 +1,5 @@
-import 'package:cookies_app/app/pages/home/widgets/container_arrow_widget.dart';
-import 'package:cookies_app/app/pages/home/widgets/premium_widget.dart';
+import 'package:cookies_app/app/pages/widgets/container_arrow_widget.dart';
+import 'package:cookies_app/app/pages/widgets/premium_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

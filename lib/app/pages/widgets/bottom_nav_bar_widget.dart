@@ -1,8 +1,13 @@
-import 'package:cookies_app/app/pages/home/widgets/nav_bar_button_widget.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:cookies_app/app/pages/widgets/nav_bar_button_widget.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavBarWidget extends StatefulWidget {
-  const BottomNavBarWidget({super.key});
+  final Function(int page) callbackIndexPage;
+  const BottomNavBarWidget({
+    Key? key,
+    required this.callbackIndexPage,
+  }) : super(key: key);
 
   @override
   State<BottomNavBarWidget> createState() => _BottomNavBarWidgetState();
@@ -14,6 +19,7 @@ class _BottomNavBarWidgetState extends State<BottomNavBarWidget> {
     setState(() {
       index = page;
     });
+    widget.callbackIndexPage(index);
   }
 
   isSelected(int page) {

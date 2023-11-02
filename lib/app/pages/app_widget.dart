@@ -9,6 +9,10 @@ class AppWidget extends StatelessWidget {
   static const orange = Color(0xffE38035);
   static const buttonColor = Color(0xff363841);
   static const navBarColor = Color(0xff141519);
+  static var borderColor = OutlineInputBorder(
+    borderSide: const BorderSide(color: Colors.white),
+    borderRadius: BorderRadius.circular(15),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -21,18 +25,29 @@ class AppWidget extends StatelessWidget {
           title: 'Cookies App',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
-            primarySwatch: Colors.blue,
+            brightness: Brightness.dark,
+            useMaterial3: true,
             highlightColor: orange,
             cardColor: buttonColor,
             bottomAppBarTheme:
                 const BottomAppBarTheme().copyWith(color: navBarColor),
             textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
             scaffoldBackgroundColor: background,
+            inputDecorationTheme: InputDecorationTheme(
+              focusColor: Colors.white,
+              enabledBorder: borderColor,
+              focusedBorder: borderColor,
+              activeIndicatorBorder: const BorderSide(
+                color: Colors.white,
+              ),
+              isDense: true,
+              suffixIconColor: Colors.grey.shade300,
+            ),
           ),
           home: child,
         );
       },
-      child: const HomePage(),
+      child: HomePage(),
     );
   }
 }

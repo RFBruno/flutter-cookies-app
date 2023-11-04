@@ -45,33 +45,39 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 60, bottom: 30, left: 24, right: 24),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          const Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              AvatarWidget(),
-              SizedBox(width: 15),
-              PersonalInfoWidget(),
-              Spacer(),
-              CartWidget()
-            ],
-          ),
-          const CookiesBarWidget(),
-          Expanded(
-            child: PageView(
-              clipBehavior: Clip.none,
-              controller: widget.controllerPageView,
-              children: <Widget>[
-                PageOfHome(size: widget.size),
-                PageOfSearch(size: widget.size),
+    return SizedBox(
+      width: 410,
+      child: Padding(
+        padding:
+            const EdgeInsets.only(top: 60, bottom: 30, left: 24, right: 24),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AvatarWidget(),
+                SizedBox(width: 15),
+                PersonalInfoWidget(),
+                Spacer(),
+                CartWidget()
               ],
             ),
-          ),
-        ],
+            const CookiesBarWidget(),
+            Expanded(
+              child: PageView(
+                clipBehavior: Clip.none,
+                physics: const NeverScrollableScrollPhysics(),
+                controller: widget.controllerPageView,
+                children: <Widget>[
+                  PageOfHome(size: widget.size),
+                  PageOfSearch(size: widget.size),
+                  PageOfPremium(size: widget.size),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -86,7 +92,14 @@ class PageOfPremium extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const PremiumPage();
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          SizedBox(height: size.height * .03),
+          const PremiumPage(),
+        ],
+      ),
+    );
   }
 }
 
